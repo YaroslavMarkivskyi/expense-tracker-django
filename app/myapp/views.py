@@ -26,3 +26,10 @@ def edit(request, id):
             form.save()
             return redirect('index')
     return render(request, 'myapp/edit.html', {'expense_form': expense_form})
+
+
+def delete(request, id):
+    if request.method == "POST":
+        expense = Expense.objects.get(id=id)
+        expense.delete()
+        
