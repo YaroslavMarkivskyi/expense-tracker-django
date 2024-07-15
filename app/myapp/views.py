@@ -5,5 +5,10 @@ from .forms import ExpenseForm
 
 
 def index(request):
+    if request.method == 'POST':
+        expense = ExpenseForm(request.POST)
+        if expense.is_valid():
+            expense.save()
+
     expense_form = ExpenseForm()
-    return render(request, 'myapp/index.html')
+    return render(request, 'myapp/index.html', {'expense_form': expense_form})
