@@ -7,4 +7,3 @@ class ExpenseForm(ModelForm):
         model = Expense
         fields = ('name','amount','category')
         
-    
