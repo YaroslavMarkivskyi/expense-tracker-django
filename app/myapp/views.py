@@ -29,7 +29,6 @@ def edit(request, id):
 
 
 def delete(request, id):
-    if request.method == "POST":
+    if request.method == "POST" and 'delete' in request.POST:
         expense = Expense.objects.get(id=id)
         expense.delete()
-        
