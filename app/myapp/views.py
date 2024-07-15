@@ -55,7 +55,7 @@ def index(request):
 
 def edit(request, id):
     expense = Expense.objects.get(id=id)
-    expense_form = ExpenseForm(isinstance=expense)
+    expense_form = ExpenseForm(instance=expense)
     if request.method =="POST":
         expense = Expense.objects.get(id=id)
         form = ExpenseForm(request.POST, instance=expense)
